@@ -214,7 +214,14 @@ function veldMaken(aantal)
 	}
 	document.getElementById("box").innerHTML = boxDiv;
 	var levelVoorGebruiker = level + 1;
-	document.getElementById("pinfo").innerHTML = "Draai alle zwarte kaarten om";
+	if (levelVoorGebruiker == 1)
+	{
+		document.getElementById("pinfo").innerHTML = "Draai alle zwarte kaarten om";
+	}
+	else
+	{
+		document.getElementById("pinfo").innerHTML = "Level: " + levelVoorGebruiker.toString();
+	}
 	document.getElementById("box").style = 'width:' + rijWidth + 'px; height:' + rijWidth + 'px;';
 	console.log("De kaarten zijn gekmaakt");
 }
