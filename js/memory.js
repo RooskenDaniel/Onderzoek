@@ -30,7 +30,6 @@ function flipCard(card)
 			var urlString = window.location.href;
 			var url = new URL(urlString);
 			koffie = url.searchParams.get('koffie');
-			var json = '{"koffie": ' + koffie + ', "level": ' + level + '}';
 			//localStorage.setItem("./json/memory.json", json);
 
 			$.getJSON('https://json.extendsclass.com/bin/60ca0abe3b8e', function(jd)
@@ -40,12 +39,26 @@ function flipCard(card)
 				request.open("PUT", "https://json.extendsclass.com/bin/60ca0abe3b8e", true);
 				request.setRequestHeader("Content-type", "application/json");
 				request.setRequestHeader("Security-key", "Your security key");
-				request.onreadystatechange = () => {
-			};
-			jsonString = JSON.stringify(jd);
-			jsonZonderBlokHaak = jsonString.slice(0, -1);
-			request.send(jsonZonderBlokHaak + ',{"' + koffie + '":"' + level + '"}]');
-               });
+				request.onreadystatechange = () => {};
+				jsonString = JSON.stringify(jd);
+				jsonZonderBlokHaak = jsonString.slice(0, -1);
+				if (Number.isInteger(koffie))
+				{
+					if (Number.isInteger(level))
+					{
+						request.send(jsonZonderBlokHaak + ',{"' + koffie + '":"' + level + '"}]');
+					}
+				}
+				else
+				{
+					koffie = 0;
+					if (Number.isInteger(level))
+					{
+						request.send(jsonZonderBlokHaak + ',{"' + koffie + '":"' + level + '"}]');
+					}
+				}
+				
+             });
 			/*
 			const request = new XMLHttpRequest();
 			request.open("GET", "https://json.extendsclass.com/bin/:id", true);

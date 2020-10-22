@@ -15,7 +15,7 @@ var reactionTime;
 
 function makeBox() {
         var time=Math.random();
-        time=time*3000;
+        time=time*10000;
     
     setTimeout(function() {
     
@@ -51,6 +51,36 @@ document.getElementById("box").onclick=function() {
     
     reactionTime=(clickedTime-createdTime)/1000;
     console.log(reactionTime);
+
+    var koffie = 0;
+    var urlString = window.location.href;
+    var url = new URL(urlString);
+    koffie = url.searchParams.get('koffie');
+
+    $.getJSON('https://json.extendsclass.com/bin/676b8306466d', function(jd)
+    {
+        console.log("de getjson wordt uitgevoerd");
+        const request = new XMLHttpRequest();
+        request.open("PUT", "https://json.extendsclass.com/bin/676b8306466d", true);
+        request.setRequestHeader("Content-type", "application/json");
+        request.setRequestHeader("Security-key", "Your security key");
+        request.onreadystatechange = () => {};
+        jsonString = JSON.stringify(jd);
+        jsonZonderBlokHaak = jsonString.slice(0, -1);
+        
+        if (Number.isInteger(koffie))
+        {
+            request.send(jsonZonderBlokHaak + ',{"' + koffie + '":"' + reactionTime + '"}]');
+        }
+        else
+        {
+            koffie = 0;
+            request.send(jsonZonderBlokHaak + ',{"' + koffie + '":"' + reactionTime + '"}]');
+        }
+    });
+
+
+
     
     document.getElementById("printReactionTime").innerHTML="Your Reaction Time is: " + reactionTime + "seconds";
     
