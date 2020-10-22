@@ -26,6 +26,61 @@ function flipCard(card)
 		}
 		else
 		{
+			var koffie = 0;
+			var urlString = window.location.href;
+			var url = new URL(urlString);
+			koffie = url.searchParams.get('koffie');
+			var json = '{"koffie": ' + koffie + ', "level": ' + level + '}';
+			//localStorage.setItem("./json/memory.json", json);
+
+			$.getJSON('https://json.extendsclass.com/bin/60ca0abe3b8e', function(jd)
+            {
+            	console.log("de getjson wordt uitgevoerd");
+                const request = new XMLHttpRequest();
+				request.open("PUT", "https://json.extendsclass.com/bin/60ca0abe3b8e", true);
+				request.setRequestHeader("Content-type", "application/json");
+				request.setRequestHeader("Security-key", "Your security key");
+				request.onreadystatechange = () => {
+			};
+			jsonString = JSON.stringify(jd);
+			jsonZonderBlokHaak = jsonString.slice(0, -1);
+			request.send(jsonZonderBlokHaak + ',{"' + koffie + '":"' + level + '"}]');
+               });
+			/*
+			const request = new XMLHttpRequest();
+			request.open("GET", "https://json.extendsclass.com/bin/:id", true);
+			request.onreadystatechange = () => {
+			alert(request.responseText);
+			};
+			request.send();*/
+			
+
+			
+			/*$.getJSON('https://json.extendsclass.com/bin/60ca0abe3b8e', function(data)
+			{
+				console.log("testi");
+				console.log(data);
+    // JSON result in `data` variable
+			});*/
+
+			/*
+			const request = new XMLHttpRequest();
+			request.open("PUT", "https://json.extendsclass.com/bin/60ca0abe3b8e", true);
+			request.setRequestHeader("Content-type", "application/json");
+			request.setRequestHeader("Security-key", "Your security key");
+			request.onreadystatechange = () => {
+			};
+			request.send('[{"99":"99"}]');
+			*/
+	
+			/*
+			const request = new XMLHttpRequest();
+			request.open("PATCH", "https://json.extendsclass.com/bin/60ca0abe3b8e", true);
+			request.setRequestHeader("Content-type", "application/merge-patch+json");
+			request.onreadystatechange = () => {
+			};
+			request.send('[{"koffie": 9,"level": 3}]');*/
+
 			console.log("helaas je hebt verloren");
 			var levelVoorGebruiker = level + 1;
 			document.getElementById("pinfo").innerHTML = "Je hebt verloren. Level: " + levelVoorGebruiker.toString();
