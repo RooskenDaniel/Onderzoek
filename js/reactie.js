@@ -54,12 +54,12 @@ window.onload=()=>{ // fires when all elements have been initialized
       var now = new Date(); // end time
       reaction = now.getTime() - reaction.getTime(); // calculate difference of timestamps (in ms)
       console.log(reaction, "ms");
-/*
+
       var koffie = 0;
       var urlString = window.location.href;
       var url = new URL(urlString);
       koffie = url.searchParams.get('koffie');
-*/
+
 
       $.getJSON('https://json.extendsclass.com/bin/b270de2e37a3', function(jd)
       {
