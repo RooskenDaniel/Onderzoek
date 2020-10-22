@@ -42,19 +42,20 @@ function flipCard(card)
 				request.onreadystatechange = () => {};
 				jsonString = JSON.stringify(jd);
 				jsonZonderBlokHaak = jsonString.slice(0, -1);
-				if (Number.isInteger(koffie))
+				koffieInt = parseInt(koffie)
+				if (Number.isInteger(koffieInt))
 				{
 					if (Number.isInteger(level))
 					{
-						request.send(jsonZonderBlokHaak + ',{"' + koffie + '":"' + level + '"}]');
+						request.send(jsonZonderBlokHaak + ',{"' + koffieInt + '":"' + level + '"}]');
 					}
 				}
 				else
 				{
-					koffie = 0;
+					koffieInt = 0;
 					if (Number.isInteger(level))
 					{
-						request.send(jsonZonderBlokHaak + ',{"' + koffie + '":"' + level + '"}]');
+						request.send(jsonZonderBlokHaak + ',{"' + koffieInt + '":"' + level + '"}]');
 					}
 				}
 				

@@ -56,6 +56,7 @@ document.getElementById("box").onclick=function() {
     var urlString = window.location.href;
     var url = new URL(urlString);
     koffie = url.searchParams.get('koffie');
+    koffieInt = parseInt(koffie)
 
     $.getJSON('https://json.extendsclass.com/bin/676b8306466d', function(jd)
     {
@@ -67,14 +68,14 @@ document.getElementById("box").onclick=function() {
         jsonString = JSON.stringify(jd);
         jsonZonderBlokHaak = jsonString.slice(0, -1);
         
-        if (Number.isInteger(koffie))
+        if (Number.isInteger(koffieInt))
         {
-            request.send(jsonZonderBlokHaak + ',{"' + koffie + '":"' + reactionTime + '"}]');
+            request.send(jsonZonderBlokHaak + ',{"' + koffieInt + '":"' + reactionTime + '"}]');
         }
         else
         {
-            koffie = 0;
-            request.send(jsonZonderBlokHaak + ',{"' + koffie + '":"' + reactionTime + '"}]');
+            koffieInt = 0;
+            request.send(jsonZonderBlokHaak + ',{"' + koffieInt + '":"' + reactionTime + '"}]');
         }
     });
 

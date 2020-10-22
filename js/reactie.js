@@ -59,7 +59,7 @@ window.onload=()=>{ // fires when all elements have been initialized
       var urlString = window.location.href;
       var url = new URL(urlString);
       koffie = url.searchParams.get('koffie');
-
+      koffieInt = parseInt(koffie)
 
       $.getJSON('https://json.extendsclass.com/bin/b270de2e37a3', function(jd)
       {
@@ -72,14 +72,14 @@ window.onload=()=>{ // fires when all elements have been initialized
         jsonString = JSON.stringify(jd);
         jsonZonderBlokHaak = jsonString.slice(0, -1);
         
-        if (Number.isInteger(koffie))
+        if (Number.isInteger(koffieInt))
         {
-            request.send(jsonZonderBlokHaak + ',{"' + koffie + '":"' + reaction + '"}]');
+            request.send(jsonZonderBlokHaak + ',{"' + koffieInt + '":"' + reaction + '"}]');
         }
         else
         {
-            koffie = 0;
-            request.send(jsonZonderBlokHaak + ',{"' + koffie + '":"' + reaction + '"}]');
+            koffieInt = 0;
+            request.send(jsonZonderBlokHaak + ',{"' + koffieInt + '":"' + reaction + '"}]');
         }
         
       });
