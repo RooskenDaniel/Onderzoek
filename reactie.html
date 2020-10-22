@@ -1,0 +1,42 @@
+<!-- This is my first project where I'm using HTML, CSS and JavaScript together.
+Any suggestions? Or did you notice a bug? Please leave a comment! 
+Hope you like this project! -->
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Reactietijd test</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i" rel="stylesheet">
+        <link rel="stylesheet" href="style/reactie.css">
+    </head>
+
+    <body>
+        <div class="entire">
+            <t>Test jouw reactietijd<br>Wacht tot het scherm groen wordt. Klik dan ergens willekeurig op het scherm en de reactietijd komt in beeld.</t>
+            <button>Start</button>
+        </div>
+        <div class="wait" dn>
+            Wacht tot het groen wordt
+        </div>
+        <div class="tap" dn>
+            Nu klikken!
+        </div>
+        <div class="toofast" dn>
+            <t>Je was te snel!<br>Klik pas wanneer het scherm groen is</t>
+            <button>Continue</button>
+        </div>
+        <div class="result" dn>
+            <t>Het koste je <res></res>ms om te klikken!</t>
+            <hs dn>Je hebt een nieuwe highscore!</hs>
+            <button>Doorgaan</button>
+        </div>
+        <div class="highscore">
+             Highscore: <res>? </res>ms
+         </div>
+    </body>
+    
+</html>
+
+<script src="js/reactie.js"></script>
