@@ -54,35 +54,35 @@ window.onload=()=>{ // fires when all elements have been initialized
       var now = new Date(); // end time
       reaction = now.getTime() - reaction.getTime(); // calculate difference of timestamps (in ms)
       console.log(reaction, "ms");
-
+/*
       var koffie = 0;
       var urlString = window.location.href;
       var url = new URL(urlString);
       koffie = url.searchParams.get('koffie');
-
+*/
 
       $.getJSON('https://json.extendsclass.com/bin/b270de2e37a3', function(jd)
       {
-      console.log("de getjson wordt uitgevoerd");
-      const request = new XMLHttpRequest();
-      request.open("PUT", "https://json.extendsclass.com/bin/b270de2e37a3", true);
-      request.setRequestHeader("Content-type", "application/json");
-      request.setRequestHeader("Security-key", "Your security key");
-      request.onreadystatechange = () => {};
-      jsonString = JSON.stringify(jd);
-      jsonZonderBlokHaak = jsonString.slice(0, -1);
-      
-      if (Number.isInteger(koffie))
-      {
-          request.send(jsonZonderBlokHaak + ',{"' + koffie + '":"' + reaction + '"}]');
-      }
-      else
-      {
-          koffie = 0;
-          request.send(jsonZonderBlokHaak + ',{"' + koffie + '":"' + reaction + '"}]');
-      }
+        console.log("de getjson wordt uitgevoerd");
+        const request = new XMLHttpRequest();
+        request.open("PUT", "https://json.extendsclass.com/bin/b270de2e37a3", true);
+        request.setRequestHeader("Content-type", "application/json");
+        request.setRequestHeader("Security-key", "Your security key");
+        request.onreadystatechange = () => {};
+        jsonString = JSON.stringify(jd);
+        jsonZonderBlokHaak = jsonString.slice(0, -1);
         
-    });
+        if (Number.isInteger(koffie))
+        {
+            request.send(jsonZonderBlokHaak + ',{"' + koffie + '":"' + reaction + '"}]');
+        }
+        else
+        {
+            koffie = 0;
+            request.send(jsonZonderBlokHaak + ',{"' + koffie + '":"' + reaction + '"}]');
+        }
+        
+      });
 
       tap.setAttribute("dn","");
       result.removeAttribute("dn");

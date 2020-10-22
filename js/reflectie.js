@@ -63,7 +63,6 @@ document.getElementById("box").onclick=function() {
         const request = new XMLHttpRequest();
         request.open("PUT", "https://json.extendsclass.com/bin/676b8306466d", true);
         request.setRequestHeader("Content-type", "application/json");
-        request.setRequestHeader("Security-key", "Your security key");
         request.onreadystatechange = () => {};
         jsonString = JSON.stringify(jd);
         jsonZonderBlokHaak = jsonString.slice(0, -1);
