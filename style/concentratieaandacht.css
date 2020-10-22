@@ -1,0 +1,12 @@
+.blokje
+{
+	float: left;
+	outline: 1px solid black;
+	height: 100px;
+	width: 4%;
+}
+
+*
+{
+  font-family: Arial, Helvetica, sans-serif;;
+}

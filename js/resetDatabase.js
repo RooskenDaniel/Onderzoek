@@ -30,3 +30,14 @@ function resetReactie()
 	};
 	request.send('[{"99":"99"}]');
 }
+
+function resetConcentratieaandacht()
+{
+	const request = new XMLHttpRequest();
+	request.open("PUT", "https://json.extendsclass.com/bin/7466aaa74c7a", true);
+	request.setRequestHeader("Content-type", "application/json");
+	request.setRequestHeader("Security-key", "Your security key");
+	request.onreadystatechange = () => {
+	};
+	request.send('[{"99":"99"}]');
+}
