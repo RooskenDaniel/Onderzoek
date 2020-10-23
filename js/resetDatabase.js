@@ -41,3 +41,14 @@ function resetConcentratieaandacht()
 	};
 	request.send('[{"99":"99"}]');
 }
+
+function resetFijnemotoriek()
+{
+	const request = new XMLHttpRequest();
+	request.open("PUT", "https://json.extendsclass.com/bin/1650645c04a4", true);
+	request.setRequestHeader("Content-type", "application/json");
+	request.setRequestHeader("Security-key", "Your security key");
+	request.onreadystatechange = () => {
+	};
+	request.send('[{"99":"99"}]');
+}
