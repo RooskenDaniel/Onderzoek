@@ -118,7 +118,7 @@ function opRoodGedrukt()
 			}
 		});
 
-		document.getElementById("info").innerHTML = "Je hebt de test volbalcht in " + verstrekenTijd + " secondon. Druk op start om nog eens te spelen";
+		document.getElementById("info").innerHTML = "Je hebt de test volbracht in " + verstrekenTijd + " secondon. Druk op start om nog eens te spelen";
 		console.log(verstrekenTijd);
 		console.log(ingedrukteRoden[2]);
 		console.log('gefeliciteerd, je hebt gewonnen');
